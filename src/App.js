@@ -2,9 +2,19 @@ import './App.css';
 
 import { Navbar, NavbarBrand } from 'reactstrap';
 
+import { Component } from 'react';
+import { DISHES } from './shared/dishes';
 import Menu from './components/MenuComponent';
 
-function App() {
+class App extends Component {
+  constructor(props){
+    super(props);
+      this.state = {
+dishes : DISHES
+    };
+
+  }
+  render(){
   return (
     <div>
      <Navbar dark color = "primary" >
@@ -12,9 +22,10 @@ function App() {
          <NavbarBrand href="/">Sai Restautant</NavbarBrand>
        </div>
        </Navbar> 
-       <Menu/>
+       <Menu dishes = {this.state.dishes}/>
     </div>
   );
+}
 }
 
 export default App;
